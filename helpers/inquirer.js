@@ -89,6 +89,11 @@ export const menuDeleteTask = async (tareas = []) => {
     }
   });
 
+  choices.unshift({
+    value: 'cancel',
+    name: 'Regresar'
+  })
+
   const questions = [
     {
       type: 'list',

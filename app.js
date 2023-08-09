@@ -54,6 +54,10 @@ const main = async () => {
       case '6':
         // eliminar una tarea de la lista
         const id = await menuDeleteTask(tareas.listadoArr);
+        if (id === 'cancel') {
+          opt = id;
+          break;
+        }
         const ok = await confirm('¿Tas seguro, compa?');
         if (ok) {
           tareas.eliminarTarea(id);
@@ -64,7 +68,7 @@ const main = async () => {
         break;
     }
 
-    if (opt !== '0') {
+    if (opt !== '0' && opt !== 'cancel') {
       await pause();
     }
 
